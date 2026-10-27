@@ -4,7 +4,9 @@ import useReducedMotion from '../hooks/useReducedMotion.js'
 import { computeDisplacement } from './displace.js'
 import './InteractiveName.css'
 
-const SPRING = { stiffness: 260, damping: 14, mass: 0.7 }
+// Bouncy: low damping + extra mass gives a visible overshoot/wobble as letters
+// are pushed and as they settle back home.
+const SPRING = { stiffness: 320, damping: 8, mass: 0.9 }
 
 function Glyph({ ch, pointer }) {
   const ref = useRef(null)
