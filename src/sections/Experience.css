@@ -1,0 +1,86 @@
+.xp__timeline {
+  position: relative;
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
+
+.xp__timeline::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 7px;
+  width: 2px;
+  background: linear-gradient(var(--accent) 0%, var(--accent-soft) 100%);
+}
+
+.xp__node {
+  position: relative;
+  padding: 0 0 3rem 1.75rem;
+}
+
+.xp__node:last-child {
+  padding-bottom: 0;
+}
+
+.xp__dot {
+  position: absolute;
+  left: -2rem;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 3px solid var(--accent);
+}
+
+.xp__role {
+  font-size: 1.35rem;
+}
+
+.xp__company {
+  font-weight: 600;
+  color: var(--accent-strong);
+  margin-top: 0.15rem;
+}
+
+.xp__meta {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--faint);
+  margin-top: 0.3rem;
+}
+
+.xp__bullets {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.7rem;
+  max-width: 68ch;
+}
+
+.xp__bullets li {
+  position: relative;
+  padding-left: 1.3rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.xp__bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+
+@media (max-width: 560px) {
+  .xp__timeline {
+    padding-left: 1.4rem;
+  }
+}
