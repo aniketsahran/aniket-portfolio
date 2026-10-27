@@ -20,10 +20,10 @@ export default function Reveal({ children, as = 'div', delay = 0, className, ...
   return (
     <MotionTag
       className={className}
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '0px 0px -10% 0px' }}
-      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1], delay }}
+      transition={{ type: 'spring', stiffness: 90, damping: 18, mass: 0.8, delay }}
       {...rest}
     >
       {children}
