@@ -1,30 +1,31 @@
-/* Warm Paper + Terracotta — committed single light theme.
-   Contrast notes (WCAG AA on #faf7f2 paper):
-   - #1a1a1a ink on paper ≈ 16.8:1  (AAA)
-   - #5c5349 muted on paper ≈ 6.0:1 (AA for normal text)
-   - #a8482a accent-text on paper ≈ 5.3:1 (AA for normal text)
-   - #c2663a is used for large text / UI fills / borders, not small body copy. */
+/* Cool dark "engineer" theme — committed single dark theme.
+   Contrast notes (WCAG, verified in button-contrast.test.js):
+   - #EDEEF0 text on #0B0D10 base ≈ 16:1 (AAA)
+   - #9AA0AA muted on base ≈ 7.5:1 (AA)
+   - #0B0D10 on iris #7C6DFF button fill ≈ 5:1 (AA) */
 :root {
-  /* Core palette */
-  --bg: #faf7f2;
-  --bg-sunken: #f3ede3;
-  --bg-raised: #ffffff;
-  --ink: #1a1a1a;
-  --muted: #5c5349;
-  --faint: #8c8275;
-  --line: #e7e0d4;
+  /* Core palette — blue-tinted near-black */
+  --bg: #0b0d10;
+  --bg-sunken: #0e1014;
+  --bg-raised: #141720;
+  --ink: #edeef0;
+  --muted: #9aa0aa;
+  --faint: #6b7280;
+  --line: #20242c;
+  --line-strong: #2b303a;
 
-  /* Terracotta accent */
-  --accent: #c2663a;
-  --accent-strong: #a8482a; /* AA-safe for text/button fills on paper & white */
-  --accent-deep: #8f3d22; /* darker hover state, also AA-safe */
-  --accent-soft: #e9c9b4;
-  --accent-wash: #f6e7dc;
-  --on-accent: #fffaf5;
+  /* Electric iris accent */
+  --accent: #7c6dff;
+  --accent-strong: #9a8dff; /* brighter, for small accent text on dark (AA) */
+  --accent-deep: #6a5aff; /* hover fill */
+  --accent-soft: #2a2740;
+  --accent-wash: #16151f;
+  --on-accent: #0b0d10; /* near-black text on iris fill — AA-safe (≈5:1) */
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Fraunces', 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-display: 'Inter', system-ui, sans-serif;
 
   /* Rhythm */
   --maxw: 1120px;
