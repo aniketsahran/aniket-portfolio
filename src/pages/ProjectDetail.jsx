@@ -2,6 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { projects } from '../data/content.js'
 import Reveal from '../components/Reveal.jsx'
+import MagneticButton from '../components/MagneticButton.jsx'
 import useReducedMotion from '../hooks/useReducedMotion.js'
 import './ProjectDetail.css'
 
@@ -53,17 +54,17 @@ export default function ProjectDetail() {
 
           <div className="pd__links">
             {hasRepo && (
-              <a className="btn btn--primary" href={project.repoUrl} target="_blank" rel="noreferrer">
+              <MagneticButton className="btn btn--primary" href={project.repoUrl} target="_blank" rel="noreferrer">
                 View repo
-              </a>
+              </MagneticButton>
             )}
             {!hasRepo && (
               <span className="pd__soon">Repository coming soon</span>
             )}
             {hasDemo && (
-              <a className="btn btn--ghost" href={project.demoUrl} target="_blank" rel="noreferrer">
+              <MagneticButton className="btn btn--ghost" href={project.demoUrl} target="_blank" rel="noreferrer">
                 Live demo
-              </a>
+              </MagneticButton>
             )}
           </div>
 

@@ -1,5 +1,6 @@
 .skills {
   background: var(--bg-sunken);
+  border-top: 1px solid var(--line);
 }
 
 .skills__grid {
@@ -10,10 +11,10 @@
 }
 
 .skills__label {
-  font-family: var(--font-sans);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--faint);
   padding-bottom: 0.9rem;

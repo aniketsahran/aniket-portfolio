@@ -1,5 +1,6 @@
 .contact {
   background: var(--bg-sunken);
+  border-top: 1px solid var(--line);
 }
 
 .contact__inner {

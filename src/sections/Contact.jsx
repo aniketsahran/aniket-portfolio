@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { profile } from '../data/content.js'
 import { buildMailto } from '../lib/mailto.js'
 import Reveal from '../components/Reveal.jsx'
+import MagneticButton from '../components/MagneticButton.jsx'
 import './Contact.css'
 
 export default function Contact() {
@@ -55,9 +56,9 @@ export default function Contact() {
             <label htmlFor="cf-message">Message</label>
             <textarea id="cf-message" rows="5" value={form.message} onChange={update('message')} />
           </div>
-          <button type="submit" className="btn btn--primary">
+          <MagneticButton type="submit" className="btn btn--primary">
             Send email
-          </button>
+          </MagneticButton>
           <p className="contact__note">Opens in your email app — no data leaves your device.</p>
         </Reveal>
       </div>

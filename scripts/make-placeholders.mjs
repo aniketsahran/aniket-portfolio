@@ -7,17 +7,18 @@ import { fileURLToPath } from 'node:url'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 
-const PAPER = '#faf7f2'
-const INK = '#1a1a1a'
-const ACCENT = '#c2663a'
-const SOFT = '#e9c9b4'
-const LINE = '#e7e0d4'
+const PAPER = '#0e1014'
+const PANEL = '#141720'
+const INK = '#edeef0'
+const ACCENT = '#7c6dff'
+const SOFT = '#2a2740'
+const LINE = '#20242c'
 
 // A mock "app window" frame used for project screenshot placeholders.
 function uiPlaceholder({ w = 1200, h = 800, title, subtitle }) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${title} placeholder">
   <rect width="${w}" height="${h}" fill="${PAPER}"/>
-  <rect x="40" y="40" width="${w - 80}" height="${h - 80}" rx="18" fill="#ffffff" stroke="${LINE}" stroke-width="2"/>
+  <rect x="40" y="40" width="${w - 80}" height="${h - 80}" rx="18" fill="${PANEL}" stroke="${LINE}" stroke-width="2"/>
   <rect x="40" y="40" width="${w - 80}" height="70" rx="18" fill="${PAPER}"/>
   <circle cx="80" cy="76" r="8" fill="${ACCENT}"/>
   <circle cx="108" cy="76" r="8" fill="${SOFT}"/>
