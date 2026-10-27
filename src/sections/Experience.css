@@ -1,6 +1,7 @@
 /* ---- horizontal scroll track (large screens, motion allowed) ---- */
 .xp--horizontal {
   position: relative;
+  background: var(--bg);
 }
 
 .xp__sticky {
@@ -24,80 +25,84 @@
   margin-block: 0.5rem 0;
 }
 
-.xp__steps {
+/* top bar: static full-width rail + dots that translate with the panels */
+.xp__bar {
+  position: relative;
+  flex-shrink: 0;
+  height: 64px;
+  overflow: hidden;
+}
+
+.xp__bar-rail {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: clamp(2rem, 6vh, 3.5rem);
-  z-index: 3;
-  padding-inline: clamp(1.5rem, 5vw, 4rem);
-  pointer-events: none;
-}
-
-.xp__steps-rail {
-  position: relative;
-  width: 100%;
+  top: 50%;
   height: 2px;
   background: var(--line);
-}
-
-.xp__steps-fill {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background: var(--accent);
-}
-
-/* a glowing marker that rides the leading edge, in sync with the text scroll */
-.xp__steps-marker {
-  position: absolute;
-  top: 50%;
-  width: 10px;
-  height: 10px;
-  margin-left: -5px;
-  border-radius: 50%;
-  background: var(--accent);
   transform: translateY(-50%);
-  box-shadow: 0 0 14px 2px rgba(127, 174, 158, 0.6);
 }
 
-.xp__step {
+.xp__bar-track {
   position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   display: flex;
-  flex-direction: column;
+  will-change: transform;
+}
+
+.xp__bar-cell {
+  width: 100vw;
+  flex-shrink: 0;
+}
+
+.xp__bar-cell .container {
+  height: 100%;
+  display: flex;
   align-items: center;
 }
 
+.xp__step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  /* mask the rail behind the label so the line doesn't cross the text */
+  background: var(--bg);
+  padding-right: 0.9rem;
+}
+
 .xp__step-dot {
-  width: 11px;
-  height: 11px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--bg-sunken);
+  background: var(--bg);
   border: 2px solid var(--line-strong);
+  flex-shrink: 0;
   transition: background 0.3s var(--ease), border-color 0.3s var(--ease),
-    transform 0.3s var(--ease);
+    box-shadow 0.3s var(--ease);
 }
 
 .xp__step.is-active .xp__step-dot {
   background: var(--accent);
   border-color: var(--accent);
-  transform: scale(1.25);
+  box-shadow: 0 0 12px 1px rgba(127, 174, 158, 0.6);
 }
 
-.xp__step-num {
-  position: absolute;
-  top: 14px;
+.xp__step-num,
+.xp__step-role {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.03em;
   color: var(--faint);
+  white-space: nowrap;
   transition: color 0.3s var(--ease);
 }
 
 .xp__step.is-active .xp__step-num {
   color: var(--accent-strong);
+}
+
+.xp__step.is-active .xp__step-role {
+  color: var(--ink);
 }
 
 .xp__hint {

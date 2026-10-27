@@ -59,7 +59,6 @@ function HorizontalExperience() {
   const { scrollYProgress } = useScroll({ target: targetRef })
   const n = chrono.length
   const x = useTransform(scrollYProgress, [0, 1], ['0vw', `-${(n - 1) * 100}vw`])
-  const progress = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
   const [active, setActive] = useState(0)
   useMotionValueEvent(scrollYProgress, 'change', (v) => setActive(Math.round(v * (n - 1))))
 
@@ -74,7 +73,25 @@ function HorizontalExperience() {
         <div className="xp__sticky-head container">
           <p className="eyebrow">Experience</p>
           <h2 className="section-title xp__title">Where I&apos;ve been building.</h2>
-          <span className="xp__hint">scroll ↓ to move →</span>
+        </div>
+
+        {/* top bar: static full-width rail with dots that scroll with the text,
+            each dot aligned above its role's column */}
+        <div className="xp__bar" aria-hidden="true">
+          <span className="xp__bar-rail" />
+          <motion.div className="xp__bar-track" style={{ x }}>
+            {chrono.map((role, i) => (
+              <div className="xp__bar-cell" key={`${role.company}-${role.role}`}>
+                <div className="container">
+                  <span className={`xp__step ${i === active ? 'is-active' : ''}`}>
+                    <span className="xp__step-dot" />
+                    <span className="xp__step-num">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="xp__step-role">{role.role}</span>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
         <motion.div className="xp__track" style={{ x }}>
@@ -86,24 +103,6 @@ function HorizontalExperience() {
             </div>
           ))}
         </motion.div>
-
-        {/* full-width scrubber: fill + role number track the scroll */}
-        <div className="xp__steps" aria-hidden="true">
-          <div className="xp__steps-rail">
-            <motion.span className="xp__steps-fill" style={{ width: progress }} />
-            <motion.span className="xp__steps-marker" style={{ left: progress }} />
-            {chrono.map((role, i) => (
-              <span
-                className={`xp__step ${i <= active ? 'is-active' : ''}`}
-                style={{ left: n > 1 ? `${(i / (n - 1)) * 100}%` : '0%' }}
-                key={`${role.company}-${role.role}`}
-              >
-                <span className="xp__step-dot" />
-                <span className="xp__step-num">{String(i + 1).padStart(2, '0')}</span>
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )
