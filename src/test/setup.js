@@ -30,3 +30,14 @@ if (!window.IntersectionObserver) {
   window.IntersectionObserver = IntersectionObserverStub
   globalThis.IntersectionObserver = IntersectionObserverStub
 }
+
+// jsdom does not implement ResizeObserver, which Lenis (smooth scroll) uses.
+if (!window.ResizeObserver) {
+  class ResizeObserverStub {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  }
+  window.ResizeObserver = ResizeObserverStub
+  globalThis.ResizeObserver = ResizeObserverStub
+}
