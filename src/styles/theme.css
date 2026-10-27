@@ -14,13 +14,13 @@
   --line: #20242c;
   --line-strong: #2b303a;
 
-  /* Electric iris accent */
-  --accent: #7c6dff;
-  --accent-strong: #9a8dff; /* brighter, for small accent text on dark (AA) */
-  --accent-deep: #9a8dff; /* brighter hover fill — AA-safe with --on-accent */
-  --accent-soft: #2a2740;
-  --accent-wash: #16151f;
-  --on-accent: #0b0d10; /* near-black text on iris fill — AA-safe (≈5:1) */
+  /* Muted sage-teal accent */
+  --accent: #7fae9e;
+  --accent-strong: #9ec7b9; /* brighter, for small accent text on dark (AA) */
+  --accent-deep: #96c3b4; /* brighter hover fill — AA-safe with --on-accent */
+  --accent-soft: #223029;
+  --accent-wash: #121a17;
+  --on-accent: #0b0d10; /* near-black text on sage fill — AA-safe */
 
   /* Typography */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
