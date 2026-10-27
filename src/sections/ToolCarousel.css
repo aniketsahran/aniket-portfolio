@@ -1,0 +1,104 @@
+.toolcar {
+  background: var(--bg-sunken);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.toolcar__viewport {
+  margin-top: 2.5rem;
+  overflow: hidden;
+  /* fade the edges so circles drift in/out softly */
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.toolcar__track {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  width: max-content;
+  padding-inline: 2rem;
+  animation: toolcar-marq 42s linear infinite;
+}
+
+.toolcar__viewport:hover .toolcar__track {
+  animation-play-state: paused;
+}
+
+.toolcar__track--static {
+  width: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: none;
+  row-gap: 2rem;
+}
+
+@keyframes toolcar-marq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tool-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.tool-circle__badge {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--bg-raised);
+  border: 1px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease),
+    box-shadow 0.3s var(--ease);
+}
+
+.tool-circle:hover .tool-circle__badge {
+  transform: scale(1.14);
+  border-color: var(--accent);
+  box-shadow: 0 0 28px rgba(127, 174, 158, 0.25);
+}
+
+.tool-circle__logo {
+  width: 42px;
+  height: 42px;
+  background-color: var(--ink);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  transition: background-color 0.3s var(--ease);
+}
+
+.tool-circle:hover .tool-circle__logo {
+  background-color: var(--accent);
+}
+
+.tool-circle__mono {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+
+.tool-circle:hover .tool-circle__mono {
+  color: var(--accent);
+}
+
+.tool-circle__name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--faint);
+  white-space: nowrap;
+}
