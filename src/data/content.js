@@ -139,6 +139,64 @@ export const skills = [
   },
 ]
 
+// Tools with brand logos (Simple Icons slugs vendored to /assets/logos/).
+// slug: null => render as a text-only chip (no brand icon available).
+export const tools = [
+  {
+    group: 'Languages',
+    items: [
+      { name: 'C', slug: 'c' },
+      { name: 'C++', slug: 'cplusplus' },
+      { name: 'Python', slug: 'python' },
+      { name: 'Golang', slug: 'go' },
+      { name: 'JavaScript', slug: 'javascript' },
+      { name: 'HTML', slug: 'html5' },
+      { name: 'CSS', slug: 'css' },
+    ],
+  },
+  {
+    group: 'Frameworks',
+    items: [
+      { name: 'Node.js', slug: 'nodedotjs' },
+      { name: 'Express.js', slug: 'express' },
+      { name: 'React.js', slug: 'react' },
+      { name: 'Protobuf', slug: null },
+      { name: 'Uber Cadence', slug: null },
+      { name: 'Mockgen', slug: null },
+    ],
+  },
+  {
+    group: 'Deployment',
+    items: [
+      { name: 'Docker', slug: 'docker' },
+      { name: 'Kubernetes', slug: 'kubernetes' },
+      { name: 'Helm', slug: 'helm' },
+    ],
+  },
+  {
+    group: 'Developer Tools',
+    items: [
+      { name: 'Git', slug: 'git' },
+      { name: 'Postman', slug: 'postman' },
+      { name: 'Mongoose', slug: 'mongoose' },
+      { name: 'Sanity', slug: 'sanity' },
+      { name: 'Command Line', slug: null },
+      { name: 'VS Code', slug: null },
+    ],
+  },
+  {
+    group: 'Cloud / Databases',
+    items: [
+      { name: 'AWS', slug: 'amazonwebservices' },
+      { name: 'Azure', slug: null },
+      { name: 'MySQL', slug: 'mysql' },
+      { name: 'PostgreSQL', slug: 'postgresql' },
+      { name: 'MongoDB', slug: 'mongodb' },
+      { name: 'Oracle LiveSQL', slug: 'oracle' },
+    ],
+  },
+]
+
 export const beyondCode = {
   volunteering: {
     org: 'Cloudera Cares',
@@ -173,6 +231,6 @@ export const achievements = [
   { title: 'Kubernetes SIGs contributions to the agent-sandbox project', year: '2026' },
 ]
 
-const content = { profile, about, experience, projects, skills, beyondCode, achievements }
+const content = { profile, about, experience, projects, skills, tools, beyondCode, achievements }
 
 export default content

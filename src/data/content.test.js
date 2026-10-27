@@ -26,4 +26,14 @@ describe('content data module', () => {
   it('carries the Beyond Code volunteering org', () => {
     expect(content.beyondCode.volunteering.org).toBe('Cloudera Cares')
   })
+
+  it('exposes a tools dataset with logo slugs', () => {
+    expect(Array.isArray(content.tools)).toBe(true)
+    expect(content.tools.length).toBeGreaterThan(0)
+    const all = content.tools.flatMap((g) => g.items)
+    all.forEach((t) => expect(typeof t.name).toBe('string'))
+    const go = all.find((t) => t.name === 'Golang' || t.name === 'Go')
+    expect(go).toBeTruthy()
+    expect(go.slug).toBeTruthy()
+  })
 })
