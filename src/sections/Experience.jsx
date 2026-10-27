@@ -74,23 +74,9 @@ function HorizontalExperience() {
         <div className="xp__sticky-head container">
           <p className="eyebrow">Experience</p>
           <h2 className="section-title xp__title">Where I&apos;ve been building.</h2>
-          <div className="xp__steps" aria-hidden="true">
-            <div className="xp__steps-rail">
-              <motion.span className="xp__steps-fill" style={{ width: progress }} />
-              {chrono.map((role, i) => (
-                <span
-                  className={`xp__step ${i <= active ? 'is-active' : ''}`}
-                  style={{ left: n > 1 ? `${(i / (n - 1)) * 100}%` : '0%' }}
-                  key={`${role.company}-${role.role}`}
-                >
-                  <span className="xp__step-dot" />
-                  <span className="xp__step-num">{String(i + 1).padStart(2, '0')}</span>
-                </span>
-              ))}
-            </div>
-            <span className="xp__hint">scroll ↓ to move →</span>
-          </div>
+          <span className="xp__hint">scroll ↓ to move →</span>
         </div>
+
         <motion.div className="xp__track" style={{ x }}>
           {chrono.map((role) => (
             <div className="xp__panel" key={`${role.company}-${role.role}`}>
@@ -100,6 +86,24 @@ function HorizontalExperience() {
             </div>
           ))}
         </motion.div>
+
+        {/* full-width scrubber: fill + role number track the scroll */}
+        <div className="xp__steps" aria-hidden="true">
+          <div className="xp__steps-rail">
+            <motion.span className="xp__steps-fill" style={{ width: progress }} />
+            <motion.span className="xp__steps-marker" style={{ left: progress }} />
+            {chrono.map((role, i) => (
+              <span
+                className={`xp__step ${i <= active ? 'is-active' : ''}`}
+                style={{ left: n > 1 ? `${(i / (n - 1)) * 100}%` : '0%' }}
+                key={`${role.company}-${role.role}`}
+              >
+                <span className="xp__step-dot" />
+                <span className="xp__step-num">{String(i + 1).padStart(2, '0')}</span>
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
