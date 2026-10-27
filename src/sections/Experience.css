@@ -24,26 +24,64 @@
   margin-block: 0.5rem 0;
 }
 
-.xp__progress {
-  margin-top: 0.9rem;
+.xp__steps {
+  margin-top: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
-.xp__progress-track {
+.xp__steps-rail {
   position: relative;
-  width: min(200px, 40vw);
-  height: 3px;
+  width: min(260px, 52vw);
+  height: 2px;
   background: var(--line);
-  border-radius: 2px;
-  overflow: hidden;
 }
 
-.xp__progress-bar {
-  display: block;
+.xp__steps-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
   background: var(--accent);
+}
+
+.xp__step {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.xp__step-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg-sunken);
+  border: 2px solid var(--line-strong);
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease),
+    transform 0.3s var(--ease);
+}
+
+.xp__step.is-active .xp__step-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.25);
+}
+
+.xp__step-num {
+  position: absolute;
+  top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--faint);
+  transition: color 0.3s var(--ease);
+}
+
+.xp__step.is-active .xp__step-num {
+  color: var(--accent-strong);
 }
 
 .xp__hint {

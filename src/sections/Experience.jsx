@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useState } from 'react'
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion'
 import { experience } from '../data/content.js'
 import Reveal from '../components/Reveal.jsx'
 import useReducedMotion from '../hooks/useReducedMotion.js'
@@ -60,6 +60,8 @@ function HorizontalExperience() {
   const n = chrono.length
   const x = useTransform(scrollYProgress, [0, 1], ['0vw', `-${(n - 1) * 100}vw`])
   const progress = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+  const [active, setActive] = useState(0)
+  useMotionValueEvent(scrollYProgress, 'change', (v) => setActive(Math.round(v * (n - 1))))
 
   return (
     <section
@@ -72,10 +74,20 @@ function HorizontalExperience() {
         <div className="xp__sticky-head container">
           <p className="eyebrow">Experience</p>
           <h2 className="section-title xp__title">Where I&apos;ve been building.</h2>
-          <div className="xp__progress" aria-hidden="true">
-            <span className="xp__progress-track">
-              <motion.span className="xp__progress-bar" style={{ width: progress }} />
-            </span>
+          <div className="xp__steps" aria-hidden="true">
+            <div className="xp__steps-rail">
+              <motion.span className="xp__steps-fill" style={{ width: progress }} />
+              {chrono.map((role, i) => (
+                <span
+                  className={`xp__step ${i <= active ? 'is-active' : ''}`}
+                  style={{ left: n > 1 ? `${(i / (n - 1)) * 100}%` : '0%' }}
+                  key={`${role.company}-${role.role}`}
+                >
+                  <span className="xp__step-dot" />
+                  <span className="xp__step-num">{String(i + 1).padStart(2, '0')}</span>
+                </span>
+              ))}
+            </div>
             <span className="xp__hint">scroll ↓ to move →</span>
           </div>
         </div>
