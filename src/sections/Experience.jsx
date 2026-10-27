@@ -71,6 +71,7 @@ function HorizontalExperience() {
       <div className="xp__sticky">
         <div className="xp__sticky-head container">
           <p className="eyebrow">Experience</p>
+          <h2 className="section-title xp__title">Where I&apos;ve been building.</h2>
           <div className="xp__progress" aria-hidden="true">
             <span className="xp__progress-track">
               <motion.span className="xp__progress-bar" style={{ width: progress }} />

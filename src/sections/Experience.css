@@ -10,17 +10,18 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .xp__sticky-head {
-  position: absolute;
-  top: clamp(3.5rem, 7vh, 5rem);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  flex-shrink: 0;
+  padding-top: clamp(4rem, 9vh, 6rem);
+  padding-bottom: 1.25rem;
   z-index: 2;
   pointer-events: none;
+}
+
+.xp__title {
+  margin-block: 0.5rem 0;
 }
 
 .xp__progress {
@@ -54,6 +55,8 @@
 }
 
 .xp__track {
+  flex: 1;
+  min-height: 0;
   display: flex;
   will-change: transform;
 }
@@ -61,11 +64,9 @@
 .xp__panel {
   width: 100vw;
   flex-shrink: 0;
-  height: 100vh;
+  height: 100%;
   display: flex;
   align-items: center;
-  /* clear the compact pinned header, then center the card in the space below */
-  padding-top: clamp(7rem, 15vh, 9rem);
   padding-bottom: 2rem;
 }
 
