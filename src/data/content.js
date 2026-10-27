@@ -177,22 +177,22 @@ export const tools = [
     group: 'Developer Tools',
     items: [
       { name: 'Git', slug: 'git' },
-      { name: 'Postman', slug: 'postman' },
-      { name: 'Mongoose', slug: 'mongoose' },
-      { name: 'Sanity', slug: 'sanity' },
+      { name: 'VS Code', slug: 'vscode' },
+      { name: 'Postman', slug: null },
+      { name: 'Mongoose', slug: null },
+      { name: 'Sanity', slug: null },
       { name: 'Command Line', slug: null },
-      { name: 'VS Code', slug: null },
     ],
   },
   {
     group: 'Cloud / Databases',
     items: [
-      { name: 'AWS', slug: 'amazonwebservices' },
-      { name: 'Azure', slug: null },
+      { name: 'Azure', slug: 'azure' },
       { name: 'MySQL', slug: 'mysql' },
       { name: 'PostgreSQL', slug: 'postgresql' },
       { name: 'MongoDB', slug: 'mongodb' },
       { name: 'Oracle LiveSQL', slug: 'oracle' },
+      { name: 'AWS', slug: null },
     ],
   },
 ]

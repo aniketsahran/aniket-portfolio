@@ -69,20 +69,9 @@
 }
 
 .tool-circle__logo {
-  width: 42px;
-  height: 42px;
-  background-color: var(--ink);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: contain;
-  transition: background-color 0.3s var(--ease);
-}
-
-.tool-circle:hover .tool-circle__logo {
-  background-color: var(--accent);
+  width: 46px;
+  height: 46px;
+  object-fit: contain;
 }
 
 .tool-circle__mono {

@@ -11,13 +11,12 @@ export default function ToolCircle({ name, slug }) {
     <div className="tool-circle">
       <div className="tool-circle__badge">
         {slug ? (
-          <span
+          <img
             className="tool-circle__logo"
+            src={`/assets/logos/${slug}.svg`}
+            alt=""
             aria-hidden="true"
-            style={{
-              maskImage: `url(/assets/logos/${slug}.svg)`,
-              WebkitMaskImage: `url(/assets/logos/${slug}.svg)`,
-            }}
+            loading="lazy"
           />
         ) : (
           <span className="tool-circle__mono" aria-hidden="true">
