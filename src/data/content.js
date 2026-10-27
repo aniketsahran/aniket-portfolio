@@ -44,12 +44,20 @@ export const experience = [
   {
     company: 'Cloudera, Inc.',
     role: 'Software Developer - II',
-    period: 'July 2024 – Present',
+    period: 'January 2026 – Present',
     location: 'Bengaluru',
     bullets: [
       'Integrated kubernetes-sigs/agent-sandbox into Cloudera’s AI agent platform by onboarding 7 container images across 3 registries, authoring 6 Helm templates and 15 RBAC rules, and enabling CRD-driven sandbox isolation for secure agent tool execution.',
       'Built a Kubernetes operator in Go that reconciles 2 custom resource types across 12 reconciliation paths, managing up to 10 K8s resources per workload — with sandbox-aware session lifecycle including automated SandboxClaim cleanup to prevent orphaned warm-pool pods.',
       'Architected and delivered Git-style versioning for Agentic Workflows in Cloudera Agent Studio, introducing branching, workflow persistence patterns, and end-to-end audit logging, enabling reproducible workflow management and full change traceability.',
+    ],
+  },
+  {
+    company: 'Cloudera, Inc.',
+    role: 'Software Developer - I',
+    period: 'July 2024 – December 2025',
+    location: 'Bengaluru',
+    bullets: [
       'Co-designed backup/restore upgrade infrastructure in Cadence with rollback mechanisms, feature flags, and preflight validations, ensuring 100% zero-regression compatibility across diverse Azure and AWS environments.',
       'Led end-to-end design and onboarding of complex AI Workbench upgrade workflows to Uber Cadence, achieving 100% on-schedule delivery and reducing quarterly customer escalations through robust resource management.',
       'Designed and launched a dedicated Go/JavaScript microservice for User/Team synchronization, successfully reducing user sync escalations from 3 per quarter down to 0.',

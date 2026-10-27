@@ -11,8 +11,11 @@ describe('content data module', () => {
     expect(content.profile.tagline).toBe(TAGLINE)
   })
 
-  it('has both Cloudera experience entries', () => {
-    expect(content.experience.length).toBe(2)
+  it('has three Cloudera experience entries incl. SDE-I', () => {
+    expect(content.experience.length).toBe(3)
+    const sde1 = content.experience.find((e) => e.role === 'Software Developer - I')
+    expect(sde1).toBeTruthy()
+    expect(sde1.period).toMatch(/2025/)
   })
 
   it('exposes the three projects by slug in order', () => {
