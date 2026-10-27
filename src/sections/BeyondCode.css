@@ -1,0 +1,97 @@
+.beyond__intro {
+  font-size: 1.2rem;
+  color: var(--muted);
+  max-width: 54ch;
+  margin-top: -1.5rem;
+  margin-bottom: 3rem;
+}
+
+.beyond__volunteer {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.beyond__org {
+  font-size: 1.6rem;
+}
+
+.beyond__role {
+  color: var(--accent-strong);
+  font-weight: 600;
+  margin-top: 0.3rem;
+  margin-bottom: 1.25rem;
+}
+
+.beyond__items {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.beyond__items li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: var(--muted);
+}
+
+.beyond__items li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.beyond__gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.beyond__photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 4 / 3;
+}
+
+.beyond__photo:first-child {
+  grid-column: span 2;
+  aspect-ratio: 16 / 7;
+}
+
+.beyond__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.beyond__photo:hover img {
+  transform: scale(1.04);
+}
+
+.beyond__leadership {
+  margin-top: 3.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+.beyond__items--lead {
+  gap: 0.9rem;
+}
+
+@media (max-width: 760px) {
+  .beyond__volunteer,
+  .beyond__leadership {
+    grid-template-columns: 1fr;
+  }
+}
