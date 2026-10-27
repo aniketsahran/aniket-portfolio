@@ -1,0 +1,29 @@
+import { describe, it, expect } from 'vitest'
+import content from './content.js'
+
+const TAGLINE =
+  "I turn hard systems problems into reliable software — and I'll happily learn whatever the next one needs."
+
+describe('content data module', () => {
+  it('exposes the correct profile identity and links', () => {
+    expect(content.profile.name).toBe('Aniket Sahran')
+    expect(content.profile.links.github).toBe('https://github.com/aniketsahran')
+    expect(content.profile.tagline).toBe(TAGLINE)
+  })
+
+  it('has both Cloudera experience entries', () => {
+    expect(content.experience.length).toBe(2)
+  })
+
+  it('exposes the three projects by slug in order', () => {
+    expect(content.projects.map((p) => p.slug)).toEqual([
+      'filmpire',
+      'student-management-system',
+      'noterrrr',
+    ])
+  })
+
+  it('carries the Beyond Code volunteering org', () => {
+    expect(content.beyondCode.volunteering.org).toBe('Cloudera Cares')
+  })
+})
