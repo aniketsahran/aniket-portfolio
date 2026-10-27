@@ -8,5 +8,7 @@ test('renders the site with the owner name present', () => {
       <App />
     </MemoryRouter>,
   )
-  expect(screen.getByText(/Aniket Sahran/i)).toBeInTheDocument()
+  // The name appears in several places once the full page mounts (hero,
+  // portrait alt, footer); assert it is present at least once.
+  expect(screen.getAllByText(/Aniket Sahran/i).length).toBeGreaterThan(0)
 })
