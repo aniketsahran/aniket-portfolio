@@ -46,4 +46,8 @@ describe('primary button contrast', () => {
   it('body text (--ink on --bg) meets WCAG AA (>= 4.5:1)', () => {
     expect(contrast(tokenHex('--ink'), tokenHex('--bg'))).toBeGreaterThanOrEqual(4.5)
   })
+
+  it('primary button HOVER fill (--accent-deep on --on-accent) meets WCAG AA', () => {
+    expect(contrast(tokenHex('--accent-deep'), tokenHex('--on-accent'))).toBeGreaterThanOrEqual(4.5)
+  })
 })

@@ -1,21 +1,33 @@
-import { useRef } from 'react'
+import { useLayoutEffect, useRef } from 'react'
 import { motion, useSpring, useAnimationFrame } from 'framer-motion'
 import useReducedMotion from '../hooks/useReducedMotion.js'
+import { computeDisplacement } from './displace.js'
 import './InteractiveName.css'
 
 const SPRING = { stiffness: 260, damping: 14, mass: 0.7 }
-const RADIUS = 120 // px of cursor influence
-const PUSH = 0.9 // displacement strength
 
 function Glyph({ ch, pointer }) {
   const ref = useRef(null)
+  const home = useRef({ x: 0, y: 0 })
   const x = useSpring(0, SPRING)
   const y = useSpring(0, SPRING)
   const r = useSpring(0, SPRING)
 
+  // Measure the glyph's resting (home) center once after layout, and again on
+  // resize. The transform is 0 at these moments, so the rect is the true home.
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = ref.current
+      if (!el) return
+      const b = el.getBoundingClientRect()
+      home.current = { x: b.left + b.width / 2, y: b.top + b.height / 2 }
+    }
+    measure()
+    window.addEventListener('resize', measure)
+    return () => window.removeEventListener('resize', measure)
+  }, [])
+
   useAnimationFrame(() => {
-    const el = ref.current
-    if (!el) return
     const p = pointer.current
     if (!p.active) {
       x.set(0)
@@ -23,22 +35,10 @@ function Glyph({ ch, pointer }) {
       r.set(0)
       return
     }
-    const box = el.getBoundingClientRect()
-    const cx = box.left + box.width / 2
-    const cy = box.top + box.height / 2
-    const dx = cx - p.x
-    const dy = cy - p.y
-    const dist = Math.hypot(dx, dy)
-    if (dist < RADIUS) {
-      const f = (RADIUS - dist) / RADIUS
-      x.set((dx / (dist || 1)) * f * RADIUS * PUSH)
-      y.set((dy / (dist || 1)) * f * RADIUS * PUSH)
-      r.set((dx / (dist || 1)) * f * 16)
-    } else {
-      x.set(0)
-      y.set(0)
-      r.set(0)
-    }
+    const d = computeDisplacement(home.current.x, home.current.y, p.x, p.y)
+    x.set(d.x)
+    y.set(d.y)
+    r.set(d.rotate)
   })
 
   return (
@@ -59,7 +59,7 @@ export default function InteractiveName({ text, className = '' }) {
   const onMove = (e) => {
     pointer.current = { x: e.clientX, y: e.clientY, active: true }
   }
-  const onLeave = () => {
+  const stop = () => {
     pointer.current = { ...pointer.current, active: false }
   }
 
@@ -67,7 +67,9 @@ export default function InteractiveName({ text, className = '' }) {
     <span
       className={`inm ${className}`}
       onPointerMove={onMove}
-      onPointerLeave={onLeave}
+      onPointerLeave={stop}
+      onPointerCancel={stop}
+      onPointerUp={stop}
     >
       {/* Accessible full text for screen readers. */}
       <span className="sr-only">{text}</span>

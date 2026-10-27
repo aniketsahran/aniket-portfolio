@@ -17,7 +17,7 @@
   /* Electric iris accent */
   --accent: #7c6dff;
   --accent-strong: #9a8dff; /* brighter, for small accent text on dark (AA) */
-  --accent-deep: #6a5aff; /* hover fill */
+  --accent-deep: #9a8dff; /* brighter hover fill — AA-safe with --on-accent */
   --accent-soft: #2a2740;
   --accent-wash: #16151f;
   --on-accent: #0b0d10; /* near-black text on iris fill — AA-safe (≈5:1) */
