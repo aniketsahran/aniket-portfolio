@@ -6,10 +6,10 @@ afterEach(() => {
   vi.restoreAllMocks()
 })
 
-test('renders both Cloudera roles', () => {
+test('renders the Cloudera roles (title appears in the bar and the panel)', () => {
   render(<Experience />)
-  expect(screen.getByText(/Software Developer - II/i)).toBeInTheDocument()
-  expect(screen.getByText(/Software Development Intern/i)).toBeInTheDocument()
+  expect(screen.getAllByText(/Software Developer - II/i).length).toBeGreaterThanOrEqual(1)
+  expect(screen.getAllByText(/Software Development Intern/i).length).toBeGreaterThanOrEqual(1)
 })
 
 test('renders a signature bullet', () => {
