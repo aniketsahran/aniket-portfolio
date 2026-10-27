@@ -56,12 +56,37 @@
   flex-shrink: 0;
   height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  /* clear the absolutely-positioned sticky header */
+  padding-top: clamp(11rem, 26vh, 15rem);
 }
 
 /* Role card (shared) */
 .xp__card {
   max-width: 760px;
+}
+
+/* In the wide horizontal panels, flow dense bullet lists into two columns so a
+   role with many bullets stays bounded in height and never clips. */
+.xp--horizontal .xp__card {
+  max-width: 980px;
+}
+
+.xp--horizontal .xp__bullets {
+  columns: 2;
+  column-gap: 2.75rem;
+  max-width: 980px;
+}
+
+.xp--horizontal .xp__bullets li {
+  break-inside: avoid;
+  margin-bottom: 0.8rem;
+}
+
+@media (max-height: 820px) {
+  .xp--horizontal .xp__bullets li {
+    font-size: 0.9rem;
+  }
 }
 
 .xp__role {

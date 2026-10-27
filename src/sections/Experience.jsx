@@ -52,16 +52,14 @@ function VerticalFallback() {
   )
 }
 
-export default function Experience() {
-  const reduced = useReducedMotion()
-  const small = useIsSmallScreen()
+// Horizontal variant — isolated so its scroll hooks only run (and attach to the
+// ref) when actually rendered, never in the fallback path.
+function HorizontalExperience() {
   const targetRef = useRef(null)
   const { scrollYProgress } = useScroll({ target: targetRef })
   const n = chrono.length
   const x = useTransform(scrollYProgress, [0, 1], ['0vw', `-${(n - 1) * 100}vw`])
   const progress = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-
-  if (reduced || small) return <VerticalFallback />
 
   return (
     <section
@@ -91,4 +89,11 @@ export default function Experience() {
       </div>
     </section>
   )
+}
+
+export default function Experience() {
+  const reduced = useReducedMotion()
+  const small = useIsSmallScreen()
+  if (reduced || small) return <VerticalFallback />
+  return <HorizontalExperience />
 }
