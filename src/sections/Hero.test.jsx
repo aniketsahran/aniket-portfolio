@@ -9,9 +9,14 @@ test('renders the verbatim tagline', () => {
   expect(screen.getByText(TAGLINE)).toBeInTheDocument()
 })
 
-test('renders the portrait with an accessible name', () => {
+test('renders the name as the interactive centerpiece', () => {
   render(<Hero />)
-  expect(screen.getByRole('img', { name: /Aniket Sahran/i })).toBeInTheDocument()
+  expect(screen.getByText('Aniket Sahran')).toBeInTheDocument()
+})
+
+test('no portrait image in the hero (moved to About)', () => {
+  render(<Hero />)
+  expect(screen.queryByRole('img', { name: /Aniket Sahran/i })).toBeNull()
 })
 
 test('renders CV download and view-work CTAs', () => {
