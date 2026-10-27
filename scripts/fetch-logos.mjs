@@ -36,7 +36,11 @@ const MAP = {
   oracle: 'oracle/oracle-original.svg',
   azure: 'azure/azure-original.svg',
   vscode: 'vscode/vscode-original.svg',
-  amazonwebservices: 'amazonwebservices/amazonwebservices-original-wordmark.svg',
+  // candidates for tools currently shown as monograms:
+  amazonwebservices: 'amazonwebservices/amazonwebservices-original.svg',
+  postman: 'postman/postman-original.svg',
+  protobuf: 'protobuf/protobuf-original.svg',
+  bash: 'bash/bash-original.svg',
 }
 
 const missing = []

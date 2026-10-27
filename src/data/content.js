@@ -186,21 +186,21 @@ export const tools = [
     items: [
       { name: 'Git', slug: 'git' },
       { name: 'VS Code', slug: 'vscode' },
-      { name: 'Postman', slug: null },
+      { name: 'Postman', slug: 'postman' },
+      { name: 'Command Line', slug: 'bash' },
       { name: 'Mongoose', slug: null },
       { name: 'Sanity', slug: null },
-      { name: 'Command Line', slug: null },
     ],
   },
   {
     group: 'Cloud / Databases',
     items: [
+      { name: 'AWS', slug: 'amazonwebservices' },
       { name: 'Azure', slug: 'azure' },
       { name: 'MySQL', slug: 'mysql' },
       { name: 'PostgreSQL', slug: 'postgresql' },
       { name: 'MongoDB', slug: 'mongodb' },
       { name: 'Oracle LiveSQL', slug: 'oracle' },
-      { name: 'AWS', slug: null },
     ],
   },
 ]
