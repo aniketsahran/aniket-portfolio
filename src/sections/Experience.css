@@ -1,68 +1,99 @@
-.xp__timeline {
+/* ---- horizontal scroll track (large screens, motion allowed) ---- */
+.xp--horizontal {
   position: relative;
+}
+
+.xp__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.xp__sticky-head {
+  position: absolute;
+  top: clamp(4.5rem, 10vh, 7rem);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.xp__progress {
   margin-top: 1rem;
-  padding-left: 2rem;
+  width: min(240px, 50vw);
+  height: 3px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
 }
 
-.xp__timeline::before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  left: 7px;
-  width: 2px;
-  background: linear-gradient(var(--accent) 0%, var(--accent-soft) 100%);
+.xp__progress-bar {
+  display: block;
+  height: 100%;
+  background: var(--accent);
 }
 
-.xp__node {
-  position: relative;
-  padding: 0 0 3rem 1.75rem;
+.xp__hint {
+  margin-top: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--faint);
 }
 
-.xp__node:last-child {
-  padding-bottom: 0;
+.xp__track {
+  display: flex;
+  will-change: transform;
 }
 
-.xp__dot {
-  position: absolute;
-  left: -2rem;
-  top: 4px;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 3px solid var(--accent);
+.xp__panel {
+  width: 100vw;
+  flex-shrink: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Role card (shared) */
+.xp__card {
+  max-width: 760px;
 }
 
 .xp__role {
-  font-size: 1.35rem;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
 }
 
 .xp__company {
   font-weight: 600;
   color: var(--accent-strong);
-  margin-top: 0.15rem;
+  margin-top: 0.3rem;
 }
 
 .xp__meta {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  font-size: 0.88rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
   color: var(--faint);
-  margin-top: 0.3rem;
+  margin-top: 0.4rem;
 }
 
 .xp__bullets {
-  margin-top: 1rem;
+  margin-top: 1.4rem;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.8rem;
   max-width: 68ch;
 }
 
 .xp__bullets li {
   position: relative;
-  padding-left: 1.3rem;
+  padding-left: 1.4rem;
   color: var(--muted);
   font-size: 0.98rem;
   line-height: 1.55;
@@ -79,8 +110,14 @@
   background: var(--accent);
 }
 
-@media (max-width: 560px) {
-  .xp__timeline {
-    padding-left: 1.4rem;
-  }
+/* ---- vertical fallback (reduced motion / small screens) ---- */
+.xp__stack {
+  display: grid;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+.xp__stack-item {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--line);
 }
