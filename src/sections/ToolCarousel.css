@@ -18,6 +18,8 @@
   gap: clamp(1.75rem, 3.5vw, 3rem);
   width: max-content;
   padding-inline: 2rem;
+  /* vertical room so the hover scale + glow aren't clipped by the viewport */
+  padding-block: 2rem;
   animation: toolcar-marq 42s linear infinite;
 }
 
@@ -30,7 +32,7 @@
   flex-wrap: wrap;
   justify-content: center;
   animation: none;
-  row-gap: 2rem;
+  row-gap: 2.5rem;
 }
 
 @keyframes toolcar-marq {
