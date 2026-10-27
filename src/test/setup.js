@@ -14,3 +14,19 @@ if (!window.matchMedia) {
     dispatchEvent: () => false,
   })
 }
+
+// jsdom does not implement IntersectionObserver, which framer-motion's
+// whileInView relies on. Provide a no-op stub so motion components mount.
+if (!window.IntersectionObserver) {
+  class IntersectionObserverStub {
+    constructor() {}
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+    takeRecords() {
+      return []
+    }
+  }
+  window.IntersectionObserver = IntersectionObserverStub
+  globalThis.IntersectionObserver = IntersectionObserverStub
+}
