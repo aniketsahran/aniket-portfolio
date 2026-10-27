@@ -71,11 +71,12 @@ function HorizontalExperience() {
       <div className="xp__sticky">
         <div className="xp__sticky-head container">
           <p className="eyebrow">Experience</p>
-          <h2 className="section-title">Where I&apos;ve been building.</h2>
           <div className="xp__progress" aria-hidden="true">
-            <motion.span className="xp__progress-bar" style={{ width: progress }} />
+            <span className="xp__progress-track">
+              <motion.span className="xp__progress-bar" style={{ width: progress }} />
+            </span>
+            <span className="xp__hint">scroll ↓ to move →</span>
           </div>
-          <p className="xp__hint" aria-hidden="true">scroll ↓ to move →</p>
         </div>
         <motion.div className="xp__track" style={{ x }}>
           {chrono.map((role) => (

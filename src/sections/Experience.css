@@ -15,7 +15,7 @@
 
 .xp__sticky-head {
   position: absolute;
-  top: clamp(4.5rem, 10vh, 7rem);
+  top: clamp(3.5rem, 7vh, 5rem);
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -24,8 +24,15 @@
 }
 
 .xp__progress {
-  margin-top: 1rem;
-  width: min(240px, 50vw);
+  margin-top: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.xp__progress-track {
+  position: relative;
+  width: min(200px, 40vw);
   height: 3px;
   background: var(--line);
   border-radius: 2px;
@@ -39,11 +46,11 @@
 }
 
 .xp__hint {
-  margin-top: 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   color: var(--faint);
+  white-space: nowrap;
 }
 
 .xp__track {
@@ -56,9 +63,10 @@
   flex-shrink: 0;
   height: 100vh;
   display: flex;
-  align-items: flex-start;
-  /* clear the absolutely-positioned sticky header */
-  padding-top: clamp(11rem, 26vh, 15rem);
+  align-items: center;
+  /* clear the compact pinned header, then center the card in the space below */
+  padding-top: clamp(7rem, 15vh, 9rem);
+  padding-bottom: 2rem;
 }
 
 /* Role card (shared) */
