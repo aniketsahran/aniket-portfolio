@@ -16,7 +16,8 @@
 
   /* Terracotta accent */
   --accent: #c2663a;
-  --accent-strong: #a8482a; /* AA-safe for text on paper */
+  --accent-strong: #a8482a; /* AA-safe for text/button fills on paper & white */
+  --accent-deep: #8f3d22; /* darker hover state, also AA-safe */
   --accent-soft: #e9c9b4;
   --accent-wash: #f6e7dc;
   --on-accent: #fffaf5;
