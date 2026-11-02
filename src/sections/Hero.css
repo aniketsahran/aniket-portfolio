@@ -1,10 +1,5 @@
 .hero {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: clamp(6rem, 12vh, 9rem);
-  padding-bottom: var(--section-y);
   overflow: hidden;
 }
 
@@ -28,16 +23,24 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: center;
+  padding-top: clamp(6rem, 12vh, 9rem);
+  padding-bottom: clamp(2.5rem, 7vh, 5rem);
 }
 
 @media (min-width: 900px) {
   .hero__inner {
-    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.8fr);
-    gap: clamp(1.5rem, 4vw, 3.5rem);
+    grid-template-columns: minmax(0, 1fr) clamp(360px, 40vw, 600px);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    padding-bottom: 0;
+  }
+
+  .hero__copy {
+    align-self: center;
   }
 }
 
@@ -45,7 +48,7 @@
   position: relative;
   justify-self: center;
   width: 100%;
-  max-width: 340px;
+  max-width: 320px;
 }
 
 .hero__portrait img {
@@ -66,8 +69,20 @@
 
 @media (min-width: 900px) {
   .hero__portrait {
-    max-width: none;
+    justify-self: end;
     align-self: end;
+    max-width: none;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero__portrait img {
+    width: 100%;
+    height: auto;
+    max-height: 94vh;
+    object-fit: contain;
+    object-position: bottom center;
   }
 }
 
