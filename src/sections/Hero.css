@@ -40,6 +40,9 @@
     grid-template-columns: minmax(0, 1fr) clamp(420px, 44vw, 720px);
     gap: clamp(1.5rem, 4vw, 3rem);
     padding-bottom: 0;
+    /* nudge the whole composition rightward */
+    padding-left: clamp(2.5rem, 8vw, 9rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
   }
 
   .hero__copy {

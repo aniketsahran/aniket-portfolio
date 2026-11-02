@@ -17,8 +17,9 @@
 .inm__glyphs {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline;
   column-gap: 0.26em;
-  row-gap: 0;
+  row-gap: 0.2em;
   cursor: default;
 }
 
