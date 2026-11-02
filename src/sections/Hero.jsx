@@ -19,7 +19,7 @@ export default function Hero() {
 
   return (
     <section className="hero dot-grid" aria-labelledby="hero-name">
-      <div className="hero__inner container">
+      <div className="hero__inner">
         <div className="hero__copy">
           <motion.p className="eyebrow hero__eyebrow" {...rise(0)}>
             {profile.heroEyebrow}

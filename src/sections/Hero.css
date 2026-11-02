@@ -23,18 +23,21 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: 1680px;
+  margin-inline: auto;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+  padding-inline: var(--gutter);
   padding-top: clamp(6rem, 12vh, 9rem);
   padding-bottom: clamp(2.5rem, 7vh, 5rem);
 }
 
 @media (min-width: 900px) {
   .hero__inner {
-    grid-template-columns: minmax(0, 1fr) clamp(360px, 40vw, 600px);
+    grid-template-columns: minmax(0, 1fr) clamp(420px, 44vw, 720px);
     gap: clamp(1.5rem, 4vw, 3rem);
     padding-bottom: 0;
   }
@@ -75,14 +78,17 @@
     height: 100%;
     display: flex;
     align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none; /* transparent cutout margins never block the copy */
   }
 
   .hero__portrait img {
-    width: 100%;
-    height: auto;
-    max-height: 94vh;
+    /* tall enough to rise from the floor up to just under the navbar */
+    height: calc(100vh - 54px);
+    width: auto;
+    max-width: none;
     object-fit: contain;
-    object-position: bottom center;
+    object-position: bottom right;
   }
 }
 
