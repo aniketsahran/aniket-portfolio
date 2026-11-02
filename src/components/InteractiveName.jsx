@@ -10,33 +10,61 @@ const SPRING = { stiffness: 320, damping: 8, mass: 0.9 }
 
 function Glyph({ ch, pointer }) {
   const ref = useRef(null)
-  const home = useRef({ x: 0, y: 0 })
+  const home = useRef(null)
+  const wasActive = useRef(false)
   const x = useSpring(0, SPRING)
   const y = useSpring(0, SPRING)
   const r = useSpring(0, SPRING)
 
-  // Measure the glyph's resting (home) center once after layout, and again on
-  // resize. The transform is 0 at these moments, so the rect is the true home.
-  useLayoutEffect(() => {
-    const measure = () => {
-      const el = ref.current
-      if (!el) return
-      const b = el.getBoundingClientRect()
-      home.current = { x: b.left + b.width / 2, y: b.top + b.height / 2 }
+  // The glyph's resting center = its current rect center minus whatever
+  // transform we've currently applied. Subtracting the live transform makes
+  // this correct no matter the animation state, and immune to the stale-home
+  // bug when web fonts / layout reflow after mount.
+  const measure = () => {
+    const el = ref.current
+    if (!el) return
+    const b = el.getBoundingClientRect()
+    home.current = {
+      x: b.left + b.width / 2 - x.get(),
+      y: b.top + b.height / 2 - y.get(),
     }
+  }
+
+  // Measure on mount, on resize, and once web fonts finish loading (which
+  // reflows the text and would otherwise leave home pointing at the old spot).
+  useLayoutEffect(() => {
     measure()
-    window.addEventListener('resize', measure)
-    return () => window.removeEventListener('resize', measure)
+    const onResize = () => measure()
+    window.addEventListener('resize', onResize)
+    let cancelled = false
+    if (typeof document !== 'undefined' && document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        if (!cancelled) measure()
+      })
+    }
+    return () => {
+      cancelled = true
+      window.removeEventListener('resize', onResize)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   useAnimationFrame(() => {
     const p = pointer.current
     if (!p.active) {
+      wasActive.current = false
       x.set(0)
       y.set(0)
       r.set(0)
       return
     }
+    // Re-measure the moment the pointer enters, so home reflects the real
+    // on-screen position (fonts loaded, entrance settled, page scrolled).
+    if (!wasActive.current || !home.current) {
+      measure()
+      wasActive.current = true
+    }
+    if (!home.current) return
     const d = computeDisplacement(home.current.x, home.current.y, p.x, p.y)
     x.set(d.x)
     y.set(d.y)
