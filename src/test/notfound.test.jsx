@@ -9,5 +9,5 @@ test('an unknown route renders a not-found page with a link home', () => {
     </MemoryRouter>,
   )
   expect(screen.getByText(/not found/i)).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: /home/i }).getAttribute('href')).toBe('/')
+  expect(screen.getByRole('link', { name: /back home/i }).getAttribute('href')).toBe('/')
 })
