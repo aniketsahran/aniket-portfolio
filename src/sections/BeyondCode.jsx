@@ -4,9 +4,8 @@ import './BeyondCode.css'
 
 // Short alt labels for the gallery, aligned with the volunteering items.
 const GALLERY_ALT = [
-  'Aniket making braille cards for visually impaired individuals',
-  'Aniket volunteering to paint a government school',
-  'Handmade cards crafted for underprivileged children',
+  'Cloudera Cares volunteers painting an environmental mural at a government school',
+  'The Cloudera Cares volunteer team at the government school',
 ]
 
 export default function BeyondCode() {

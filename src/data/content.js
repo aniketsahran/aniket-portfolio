@@ -245,11 +245,7 @@ export const beyondCode = {
       'Volunteered in painting a government school to improve the learning environment.',
       'Crafted handmade card wishes for underprivileged children.',
     ],
-    images: [
-      '/assets/beyond/volunteer-1.svg',
-      '/assets/beyond/volunteer-2.svg',
-      '/assets/beyond/volunteer-3.svg',
-    ],
+    images: ['/assets/beyond/volunteer-1.jpg', '/assets/beyond/volunteer-2.jpg'],
   },
   leadership: {
     org: 'Indian Society for Technical Education, Thapar Chapter',
