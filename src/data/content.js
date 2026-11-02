@@ -91,7 +91,7 @@ export const projects = [
       'Integrated The Movie Database API for a vast catalog with detailed info, ratings, and cast details.',
       'Delivered personalized recommendations with separate genre tabs and efficient movie search.',
     ],
-    repoUrl: 'https://github.com/aniketsahran',
+    repoUrl: 'https://github.com/aniketsahran/filmpire',
     images: ['/assets/projects/filmpire-1.svg', '/assets/projects/filmpire-2.svg'],
   },
   {
@@ -106,7 +106,7 @@ export const projects = [
       'Used Docker and Kubernetes for zero downtime and a persistent database.',
       'Implemented Helm for easy, repeatable deployment of the application.',
     ],
-    repoUrl: '#',
+    repoUrl: 'https://github.com/aniketsahran/student_api_server',
     images: ['/assets/projects/sms-1.svg', '/assets/projects/sms-2.svg'],
   },
   {
