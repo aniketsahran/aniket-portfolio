@@ -109,7 +109,7 @@
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 0.92;
-  font-size: clamp(2.6rem, 9vw, 7rem);
+  font-size: clamp(3rem, 10.5vw, 8.2rem);
   color: var(--ink);
 }
 
