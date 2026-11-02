@@ -19,9 +19,6 @@ export default function ProjectCard({ project, index = 0 }) {
           })}
     >
       <Link to={`/projects/${project.slug}`} className="project-card__link">
-        <div className="project-card__media">
-          <img src={project.images[0]} alt={`${project.name} preview`} loading="lazy" />
-        </div>
         <div className="project-card__body">
           <p className="project-card__kind">{project.kind}</p>
           <h3 className="project-card__name">{project.name}</h3>

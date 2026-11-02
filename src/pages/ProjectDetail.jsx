@@ -75,14 +75,6 @@ export default function ProjectDetail() {
           </ul>
         </motion.header>
 
-        <section className="pd__gallery" aria-label={`${project.name} screenshots`}>
-          {project.images.map((src, i) => (
-            <Reveal className="pd__shot" delay={i * 0.06} key={src}>
-              <img src={src} alt={`${project.name} screenshot ${i + 1}`} loading="lazy" />
-            </Reveal>
-          ))}
-        </section>
-
         <section className="pd__detail">
           <Reveal as="h2" className="pd__h2">
             What I built
