@@ -10,8 +10,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const PAPER = '#0e1014'
 const PANEL = '#141720'
 const INK = '#edeef0'
-const ACCENT = '#7c6dff'
-const SOFT = '#2a2740'
+const ACCENT = '#7fae9e'
+const SOFT = '#223029'
 const LINE = '#20242c'
 
 // A mock "app window" frame used for project screenshot placeholders.
@@ -57,6 +57,10 @@ const files = [
   ['public/assets/projects/sms-2.svg', uiPlaceholder({ title: 'Student Management System', subtitle: 'SMS — deployment placeholder' })],
   ['public/assets/projects/noterrrr-1.svg', uiPlaceholder({ title: 'Noterrrr', subtitle: 'Noterrrr — notes view placeholder' })],
   ['public/assets/projects/noterrrr-2.svg', uiPlaceholder({ title: 'Noterrrr', subtitle: 'Noterrrr — editor placeholder' })],
+  ['public/assets/projects/pristine-1.svg', uiPlaceholder({ title: 'Pristine', subtitle: 'Pristine — dashboard placeholder' })],
+  ['public/assets/projects/pristine-2.svg', uiPlaceholder({ title: 'Pristine', subtitle: 'Pristine — schedule placeholder' })],
+  ['public/assets/projects/the-link-1.svg', uiPlaceholder({ title: 'The Link', subtitle: 'The Link — doubts feed placeholder' })],
+  ['public/assets/projects/the-link-2.svg', uiPlaceholder({ title: 'The Link', subtitle: 'The Link — resources placeholder' })],
   ['public/assets/beyond/volunteer-1.svg', photoPlaceholder({ label: 'Braille cards — photo coming soon', hue: 0 })],
   ['public/assets/beyond/volunteer-2.svg', photoPlaceholder({ label: 'Painting a school — photo coming soon', hue: 20 })],
   ['public/assets/beyond/volunteer-3.svg', photoPlaceholder({ label: 'Cards for children — photo coming soon', hue: 40 })],

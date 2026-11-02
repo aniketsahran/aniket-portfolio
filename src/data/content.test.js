@@ -18,11 +18,13 @@ describe('content data module', () => {
     expect(sde1.period).toMatch(/2025/)
   })
 
-  it('exposes the three projects by slug in order', () => {
+  it('exposes the projects by slug in order', () => {
     expect(content.projects.map((p) => p.slug)).toEqual([
       'filmpire',
       'student-management-system',
       'noterrrr',
+      'pristine',
+      'the-link',
     ])
   })
 

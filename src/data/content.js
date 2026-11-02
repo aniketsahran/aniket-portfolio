@@ -124,6 +124,36 @@ export const projects = [
     repoUrl: 'https://github.com/aniketsahran',
     images: ['/assets/projects/noterrrr-1.svg', '/assets/projects/noterrrr-2.svg'],
   },
+  {
+    slug: 'pristine',
+    name: 'Pristine',
+    kind: 'Hostel Cleaning Management System',
+    summary:
+      'A system to organize and track hostel cleaning operations — scheduling tasks and coordinating cleaning staff through a web interface.',
+    tech: ['JavaScript', 'Node.js', 'Express.js', 'HTML', 'CSS'],
+    highlights: [
+      'Manages cleaning tasks and schedules across hostel facilities.',
+      'User authentication with role-based access for staff.',
+      'Web interface to assign work and coordinate cleaning crews.',
+    ],
+    repoUrl: 'https://github.com/aniketsahran/pristine',
+    images: ['/assets/projects/pristine-1.svg', '/assets/projects/pristine-2.svg'],
+  },
+  {
+    slug: 'the-link',
+    name: 'The Link',
+    kind: 'Student Doubt-Solving & Resource Platform',
+    summary:
+      'A platform that connects students with academic help — post doubts, get solutions from teachers, and access shared learning resources.',
+    tech: ['JavaScript', 'Node.js', 'HTML', 'CSS'],
+    highlights: [
+      'Students post doubts; teachers respond with solutions.',
+      'Separate student, teacher, and admin roles.',
+      'Shares learning resources alongside the Q&A.',
+    ],
+    repoUrl: 'https://github.com/aniketsahran/The-Link',
+    images: ['/assets/projects/the-link-1.svg', '/assets/projects/the-link-2.svg'],
+  },
 ]
 
 export const skills = [
