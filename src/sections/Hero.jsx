@@ -21,27 +21,15 @@ export default function Hero() {
     <section className="hero dot-grid" aria-labelledby="hero-name">
       <div className="hero__inner">
         <div className="hero__copy">
-          <motion.p className="eyebrow hero__eyebrow" {...rise(0)}>
-            <InteractiveName text={profile.heroEyebrow} />
-          </motion.p>
-
-          <motion.div id="hero-name" className="hero__name" {...rise(0.06)}>
+          <motion.div id="hero-name" className="hero__name" {...rise(0)}>
             <InteractiveName text={profile.name} />
           </motion.div>
 
-          <motion.h1 className="hero__headline" {...rise(0.12)}>
-            <InteractiveName text={profile.heroHeadline} />
+          <motion.h1 className="hero__headline" {...rise(0.1)}>
+            {profile.heroHeadline}
           </motion.h1>
 
-          <motion.p className="hero__subline" {...rise(0.18)}>
-            <InteractiveName text={profile.heroSubline} />
-          </motion.p>
-
-          <motion.p className="hero__tagline" {...rise(0.24)}>
-            <InteractiveName text={profile.tagline} />
-          </motion.p>
-
-          <motion.div className="hero__ctas" {...rise(0.3)}>
+          <motion.div className="hero__ctas" {...rise(0.2)}>
             <MagneticButton href="#work" className="btn btn--primary">
               View my work
             </MagneticButton>

@@ -49,9 +49,9 @@ export default function BeyondCode() {
 
         <Reveal className="beyond__leadership">
           <div className="beyond__text">
-            <h3 className="beyond__org">{leadership.role}</h3>
+            <h3 className="beyond__org">{leadership.org}</h3>
             <p className="beyond__role">
-              {leadership.org} · {leadership.period}
+              {leadership.role} · {leadership.period}
             </p>
           </div>
           <ul className="beyond__items beyond__items--lead">

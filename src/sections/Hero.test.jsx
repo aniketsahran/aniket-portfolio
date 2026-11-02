@@ -1,12 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import Hero from './Hero.jsx'
 
-const TAGLINE =
-  "I turn hard systems problems into reliable software — and I'll happily learn whatever the next one needs."
-
-test('renders the verbatim tagline', () => {
+test('renders the one headline sentence', () => {
   render(<Hero />)
-  expect(screen.getByText(TAGLINE)).toBeInTheDocument()
+  expect(
+    screen.getByText(/I build the infrastructure that AI agents run on\./i),
+  ).toBeInTheDocument()
 })
 
 test('renders the name as the interactive centerpiece', () => {
