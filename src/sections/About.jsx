@@ -21,11 +21,6 @@ export default function About() {
         </div>
 
         <div className="about__side">
-          <Reveal className="about__portrait">
-            <img src="/assets/portrait.jpg" alt="Aniket Sahran" width="1010" height="1010" loading="lazy" />
-            <span className="about__portrait-tag">Bengaluru, India</span>
-          </Reveal>
-
           <Reveal className="about__block">
             <h3 className="about__block-title">Education</h3>
             <ul className="about__edu">

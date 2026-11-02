@@ -28,6 +28,47 @@
   position: relative;
   z-index: 1;
   width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.8fr);
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+}
+
+.hero__portrait {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 340px;
+}
+
+.hero__portrait img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.5));
+}
+
+.hero__portrait-glow {
+  position: absolute;
+  inset: 4% -8% -4% -8%;
+  z-index: 0;
+  background: radial-gradient(ellipse at 50% 58%, rgba(127, 174, 158, 0.22), transparent 70%);
+}
+
+@media (min-width: 900px) {
+  .hero__portrait {
+    max-width: none;
+    align-self: end;
+  }
 }
 
 .hero__eyebrow {
@@ -43,8 +84,8 @@
   font-family: var(--font-display);
   font-weight: 800;
   letter-spacing: -0.04em;
-  line-height: 0.95;
-  font-size: clamp(3rem, 13vw, 10rem);
+  line-height: 0.92;
+  font-size: clamp(2.6rem, 9vw, 7rem);
   color: var(--ink);
 }
 

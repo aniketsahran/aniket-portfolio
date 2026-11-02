@@ -75,10 +75,15 @@ export default function InteractiveName({ text, className = '' }) {
     >
       {/* Accessible full text for screen readers. */}
       <span className="sr-only">{text}</span>
-      {/* Visual, interactive glyphs — hidden from the a11y tree. */}
+      {/* Visual, interactive glyphs — grouped by word so wrapping only happens
+          at spaces, never mid-word. Hidden from the a11y tree. */}
       <span className="inm__glyphs" aria-hidden="true">
-        {text.split('').map((ch, i) => (
-          <Glyph ch={ch} pointer={pointer} key={`${ch}-${i}`} />
+        {text.split(' ').map((word, wi) => (
+          <span className="inm__word" key={`w-${wi}`}>
+            {word.split('').map((ch, ci) => (
+              <Glyph ch={ch} pointer={pointer} key={`${wi}-${ci}`} />
+            ))}
+          </span>
         ))}
       </span>
     </span>

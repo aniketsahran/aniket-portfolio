@@ -18,8 +18,3 @@ test('renders an achievement highlight', () => {
   render(<About />)
   expect(screen.getByText(/Merit Award/i)).toBeInTheDocument()
 })
-
-test('renders the portrait (moved here from the hero)', () => {
-  render(<About />)
-  expect(screen.getByRole('img', { name: /Aniket Sahran/i })).toBeInTheDocument()
-})

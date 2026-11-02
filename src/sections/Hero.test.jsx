@@ -14,9 +14,9 @@ test('renders the name as the interactive centerpiece', () => {
   expect(screen.getByText('Aniket Sahran')).toBeInTheDocument()
 })
 
-test('no portrait image in the hero (moved to About)', () => {
+test('renders the portrait in the hero', () => {
   render(<Hero />)
-  expect(screen.queryByRole('img', { name: /Aniket Sahran/i })).toBeNull()
+  expect(screen.getByRole('img', { name: /Aniket Sahran/i })).toBeInTheDocument()
 })
 
 test('renders CV download and view-work CTAs', () => {
