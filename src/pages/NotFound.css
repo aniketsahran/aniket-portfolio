@@ -1,0 +1,15 @@
+.notfound {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.notfound__title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  margin: 0.5rem 0 1rem;
+}
+
+.notfound__lead {
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
